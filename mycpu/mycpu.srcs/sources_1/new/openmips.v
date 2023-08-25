@@ -39,37 +39,39 @@ module openmips(
     wire[`RegAddrBus]   ex_wDestRegAddr_o;
     wire[`RegBus]       ex_wdata_o;
     
-    //ex_mem流水寄存器 -> mem
+    //ex_mem -> mem
     wire                mem_wreg_i;
     wire[`RegAddrBus]   mem_wDestRegAddr_i;
     wire[`RegBus]       mem_wdata_i;
     
-    //mem -> mem_wb流水寄存器
+    //mem -> mem_wb
     wire                mem_wreg_o;
     wire[`RegAddrBus]   mem_wDestRegAddr_o;
     wire[`RegBus]       mem_wdata_o;
     
-    //mem_wb流水寄存器 -> wb
+    //mem_wb -> wb（regfile）
     wire                wb_wreg_i;
     wire[`RegAddrBus]   wb_wDestRegAddr_i;
     wire[`RegBus]       wb_wdata_i;
     
     //id -> regfile
-    wire                reg1_read;  //input
-    wire                reg2_read;  //input
-    wire[`RegBus]       reg1_data;  //output -> id
-    wire[`RegBus]       reg2_data;  //outpout ->id
-    wire[`RegAddrBus]   reg1_addr;  //input
-    wire[`RegAddrBus]   reg2_addr;  //input
+    wire                reg1_read;  
+    wire                reg2_read;  
+    wire[`RegBus]       reg1_data;  
+    wire[`RegBus]       reg2_data;  
+    wire[`RegAddrBus]   reg1_addr;  
+    wire[`RegAddrBus]   reg2_addr;  
+    
     
 // ************************************ 实例化各个模块 ************************************  
     //pc_reg实例化（对应if段）
     pc_reg pc_reg0(
         .clk(clk),  .rst(rst),  
-        .pc(pc),    .ce(rom_ce_o)       //output
+        //输出到指令rom的信息（pc还会传给if_id段）
+        .pc(pc),    .ce(rom_ce_o) 
     );
     
-    assign rom_addr_o = pc; //输入指令rom的地址即pc
+    assign rom_addr_o = pc; //指令rom的指令地址即pc，指令rom根据pc取出指令后，在下个时钟周期通过rom_data_i送回本模块
     
     //if_id实例化
     if_id if_id0(
@@ -96,7 +98,7 @@ module openmips(
         .wDestRegAddr_o(id_wDestRegAddr_o), .wreg_o(id_wreg_o)
     );
     
-    //regfile实例化
+    //regfile实例化（包括了写回段）
     regfile regfile0(
         .clk(clk),  .rst(rst),
         .we(wb_wreg_i), .wRegAddr(wb_wDestRegAddr_i),   .wdata(wb_wdata_i), //写端口1接收写回阶段数据

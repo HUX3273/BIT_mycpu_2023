@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
 module pc_reg(
-    input wire  clk,
-    input wire  rst,
+    input   wire                clk,
+    input   wire                rst,
     output  reg[`InstAddrBus]   pc,  //pc存指令地址，指令地址宽度为32比特，4字节；
                                     //pc会传送给指令ROM以取出指令。
     output  reg                 ce  //ce全程chip_enable芯片使能，决定了指令ROM能否被访问。

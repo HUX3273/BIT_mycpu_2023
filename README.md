@@ -3,9 +3,9 @@
 支持的指令：
 
 I型：
-| 指令 | 指令格式 | 操作 |
-| ------ | ------ | ------ |
-| ori | 001101(6) rs(5) rt(5) immediate(16) | rt <- rs OR (zero-extend)immediate |
+| 指令 | 指令格式 | 示例 | 操作 | 注意事项 |
+| ------ | ------ | ------ | ------ | ------ |
+| ori | 001101(6) rs(5) rt(5) immediate(16) | ori $1,$2 | rt($1) <- rs($2) OR (zero-extend)immediate | 注意顺序，指令格式中rs在前，rt在后，但是汇编中前项对应rt，后项对应rs |
 
 J型：
 

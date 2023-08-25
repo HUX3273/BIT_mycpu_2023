@@ -1,9 +1,0 @@
-0.6
-2019.2
-Nov  6 2019
-21:57:16
-C:/Users/HUX/Desktop/BIT_mycpu_2023/fetch_instr/fetch_instr.sim/sim_1/behav/xsim/glbl.v,1573089660,verilog,,,,glbl,,,,,,,,
-C:/Users/HUX/Desktop/BIT_mycpu_2023/fetch_instr/fetch_instr.srcs/sim_1/new/fetch_instr_tb.v,1692801496,verilog,,,,fetch_instr_tb,,,,,,,,
-C:/Users/HUX/Desktop/BIT_mycpu_2023/fetch_instr/fetch_instr.srcs/sources_1/new/fetch_instr.v,1692801150,verilog,,C:/Users/HUX/Desktop/BIT_mycpu_2023/fetch_instr/fetch_instr.srcs/sources_1/new/instr_rom.v,,fetch_instr,,,,,,,,
-C:/Users/HUX/Desktop/BIT_mycpu_2023/fetch_instr/fetch_instr.srcs/sources_1/new/instr_rom.v,1692801961,verilog,,C:/Users/HUX/Desktop/BIT_mycpu_2023/fetch_instr/fetch_instr.srcs/sources_1/new/pc.v,,instr_rom,,,,,,,,
-C:/Users/HUX/Desktop/BIT_mycpu_2023/fetch_instr/fetch_instr.srcs/sources_1/new/pc.v,1692800116,verilog,,C:/Users/HUX/Desktop/BIT_mycpu_2023/fetch_instr/fetch_instr.srcs/sim_1/new/fetch_instr_tb.v,,pc,,,,,,,,

@@ -5,7 +5,7 @@
 I型：
 | 指令 | 指令格式 | 操作 |
 | ------ | ------ | ------ |
-| ori | 001101 rs rt immediate | rt <- rs OR (zero-extend)immediate |
+| ori | 001101(6) rs(5) rt(5) immediate(16) | rt <- rs OR (zero-extend)immediate |
 
 J型：
 

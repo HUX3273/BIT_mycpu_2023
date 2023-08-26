@@ -23,7 +23,18 @@ module id(
     output  reg[`RegBus]        reg1_o,     //输出源操作数1，ALU的两个输入之一
     output  reg[`RegBus]        reg2_o,     //输出源操作数2，ALU的两个输入之一
     output  reg                 wreg_o,     //输出写寄存器使能信号
-    output  reg[`RegAddrBus]    wDestRegAddr_o  //输出写寄存器地址
+    output  reg[`RegAddrBus]    wDestRegAddr_o,  //输出写寄存器地址
+    
+    
+//为了解决数据相关（只会出现写后读数据相关），建立数据旁路，将ex段和mem段的待写回数据直接传到id段
+    //1.ex段传回数据可以解决相邻指令的数据相关；
+    input   wire                ex_wreg_i,
+    input   wire[`RegAddrBus]   ex_wDestRegAddr_i,
+    input   wire[`RegBus]       ex_wdata_i,
+    //2.mem段传回数据可以解决相隔一条指令的数据相关
+    input   wire                mem_wreg_i,
+    input   wire[`RegAddrBus]   mem_wDestRegAddr_i,
+    input   wire[`RegBus]       mem_wdata_i
     
     );
     
@@ -84,6 +95,12 @@ module id(
     always @ (*) begin 
         if(rst == `RstEnable) begin
             reg1_o <= 32'h0;
+        //数据冒险判断如下，注意判断顺序，先要判断离id段最近的ex段，再判断mem段，如果顺序错误可能导致取到脏数据
+        end else if((reg1_read_o == 1'b1) && (ex_wreg_i == 1'b1) && (ex_wDestRegAddr_i == reg1_addr_o)) begin//如果上条指令修改了本条指令要读的寄存器
+            reg1_o <= ex_wdata_i;
+        end else if((reg1_read_o == 1'b1) && (mem_wreg_i == 1'b1) && (mem_wDestRegAddr_i == reg1_addr_o)) begin//如果上上条指令修改了本条指令要读的寄存器
+            reg1_o <= mem_wdata_i;
+        /////////////////////////////////////////////////////////////////////////////////////
         end else if(reg1_read_o == 1'b1) begin
             reg1_o <= reg1_data_i;
         end else if(reg1_read_o == 1'b0) begin
@@ -97,6 +114,12 @@ module id(
     always @ (*) begin 
         if(rst == `RstEnable) begin
             reg2_o <= 32'h0;
+        //数据冒险判断如下，注意判断顺序，先要判断离id段最近的ex段，再判断mem段，如果顺序错误可能导致取到脏数据
+        end else if((reg2_read_o == 1'b1) && (ex_wreg_i == 1'b1) && (ex_wDestRegAddr_i == reg2_addr_o)) begin//如果上条指令修改了本条指令要读的寄存器
+            reg2_o <= ex_wdata_i;
+        end else if((reg2_read_o == 1'b1) && (mem_wreg_i == 1'b1) && (mem_wDestRegAddr_i == reg2_addr_o)) begin//如果上上条指令修改了本条指令要读的寄存器
+            reg2_o <= mem_wdata_i;
+        /////////////////////////////////////////////////////////////////////////////////////
         end else if(reg2_read_o == 1'b1) begin
             reg2_o <= reg2_data_i;
         end else if(reg2_read_o == 1'b0) begin

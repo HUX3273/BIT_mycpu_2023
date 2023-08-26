@@ -13,12 +13,12 @@ module openmips(
     
     
 // ************************************ 定义模块间的连线 ************************************
-    //if_id流水寄存器 -> id
+    //if_id -> id
     wire[`InstAddrBus]  pc;         //output to id
     wire[`InstAddrBus]  id_pc_i;    //input from if
     wire[`InstBus]      id_inst_i;  //input from if
     
-    //id -> id_ex流水寄存器
+    //id -> id_ex
     wire[`AluOpBus]     id_aluop_o;
     wire[`AluSelBus]    id_alusel_o;
     wire[`RegBus]       id_reg1_o;
@@ -26,7 +26,7 @@ module openmips(
     wire                id_wreg_o;
     wire[`RegAddrBus]   id_wDestRegAddr_o;
     
-    //id_ex流水寄存器 -> ex
+    //id_ex -> ex
     wire[`AluOpBus]     ex_aluop_i;
     wire[`AluSelBus]    ex_alusel_i;
     wire[`RegBus]       ex_reg1_i;
@@ -34,7 +34,8 @@ module openmips(
     wire                ex_wreg_i;
     wire[`RegAddrBus]   ex_wDestRegAddr_i;
     
-    //ex -> ex_mem流水寄存器
+    //ex -> ex_mem
+    //ex -> id（数据冒险）
     wire                ex_wreg_o;
     wire[`RegAddrBus]   ex_wDestRegAddr_o;
     wire[`RegBus]       ex_wdata_o;
@@ -45,6 +46,7 @@ module openmips(
     wire[`RegBus]       mem_wdata_i;
     
     //mem -> mem_wb
+    //mem -> id（数据冒险）
     wire                mem_wreg_o;
     wire[`RegAddrBus]   mem_wDestRegAddr_o;
     wire[`RegBus]       mem_wdata_o;
@@ -61,6 +63,8 @@ module openmips(
     wire[`RegBus]       reg2_data;  
     wire[`RegAddrBus]   reg1_addr;  
     wire[`RegAddrBus]   reg2_addr;  
+    
+    
     
     
 // ************************************ 实例化各个模块 ************************************  
@@ -95,15 +99,20 @@ module openmips(
         //output to id_ex
         .aluop_o(id_aluop_o),   .alusel_o(id_alusel_o),
         .reg1_o(id_reg1_o),     .reg2_o(id_reg2_o),
-        .wDestRegAddr_o(id_wDestRegAddr_o), .wreg_o(id_wreg_o)
+        .wDestRegAddr_o(id_wDestRegAddr_o), .wreg_o(id_wreg_o),
+        
+        //连接数据旁路，解决数据冒险
+        .ex_wreg_i(ex_wreg_o),   .ex_wDestRegAddr_i(ex_wDestRegAddr_o),   .ex_wdata_i(ex_wdata_o),
+        .mem_wreg_i(mem_wreg_o),   .mem_wDestRegAddr_i(mem_wDestRegAddr_o),   .mem_wdata_i(mem_wdata_o)
+
     );
     
     //regfile实例化（包括了写回段）
     regfile regfile0(
         .clk(clk),  .rst(rst),
-        .we(wb_wreg_i), .wRegAddr(wb_wDestRegAddr_i),   .wdata(wb_wdata_i), //写端口1接收写回阶段数据
-        .re1(reg1_read),    .rRegAddr1(reg1_addr),   .rdata1(reg1_data),    //从读端口1按照地址取出数据输出
-        .re2(reg2_read),    .rRegAddr2(reg2_addr),   .rdata2(reg2_data)     //从读端口2按照地址取出数据输出
+        .we(wb_wreg_i), .wRegAddr(wb_wDestRegAddr_i),   .wdata(wb_wdata_i), //写端口1接收写回阶段数据wdata
+        .re1(reg1_read),    .rRegAddr1(reg1_addr),   .rdata1(reg1_data),    //从读端口1按照地址取出数据rdata1并输出
+        .re2(reg2_read),    .rRegAddr2(reg2_addr),   .rdata2(reg2_data)     //从读端口2按照地址取出数据rdata2并输出
     );
     
     //id_ex实例化

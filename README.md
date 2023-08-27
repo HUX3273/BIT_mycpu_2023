@@ -7,8 +7,8 @@
 I型：
 | 指令 | 指令格式 | 示例 | 操作 | 备注 |
 | ------ | ------ | ------ | ------ | ------ |
-| ori | 001101 rs(5) rt(5) imm(16) | ori rt,rs,imm | rt <- rs OR (zero-extend)imm | 注意顺序，指令格式中rs在前，rt在后，但是汇编代码中前项rt在前，rs在后 |
 | andi | 001100 rs(5) rt(5) imm(16) | andi rt,rs,imm | rt <- rs AND (zero-extend)imm | 注意顺序，指令格式中rs在前，rt在后，但是汇编代码中前项rt在前，rs在后 |
+| ori | 001101 rs(5) rt(5) imm(16) | ori rt,rs,imm | rt <- rs OR (zero-extend)imm | 注意顺序，指令格式中rs在前，rt在后，但是汇编代码中前项rt在前，rs在后 |
 | xori | 001110 rs(5) rt(5) imm(16) | xori rt,rs,imm | rt <- rs XOR (zero-extend)imm | 注意顺序，指令格式中rs在前，rt在后，但是汇编代码中前项rt在前，rs在后 |
 |  |  |  |  |  |
 | lui | 001111 00000 rt(5) imm(16) | lui rt,imm | rt <- {imm , 16'b0} | {}是verilog的拼接运算符 |

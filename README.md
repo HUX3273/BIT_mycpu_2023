@@ -26,6 +26,9 @@ R型：
 | sll | 000000 00000 rt(5) rd(5) sa(5) 000000 | sll rd,rt,sa | rd <- rt<<sa(logic) | 逻辑左移（注意rt、rd顺序）= 算数左移 |
 | srl | 000000 00000 rt(5) rd(5) sa(5) 000010 | srl rd,rt,sa | rd <- rt>>sa(logic) | 逻辑右移（注意rt、rd顺序） |
 | sra | 000000 00000 rt(5) rd(5) sa(5) 000011 | sra rd,rt,sa | rd <- rs>>sa(arithmetic) | 算术右移（用符号位补空位） |
+| sllv | 000000 rs(5) rt(5) rd(5) 00000 000100 | sllv rd,rt,rs | rd <- rt<<rs[4:0](logic) | 逻辑左移（注意rt、rd、rs顺序）= 算数左移 |
+| srlv | 000000 rs(5) rt(5) rd(5) 00000 000110 | srlv rd,rt,rs | rd <- rt>>rs[4:0](logic) | 逻辑右移（注意rt、rd、rs顺序） |
+| srav | 000000 rs(5) rt(5) rd(5) 00000 000111 | srav rd,rt,rs | rd <- rt>>rs[4:0](arithmetic) | 逻辑右移（注意rt、rd、rs顺序） |
 |  |  |  |  |  |
 | nop | 000000 00000 00000 00000 00000 000000 | nop |  | 不难发现nop指令和sll $0,$0,0 的机器码完全相同 |
 

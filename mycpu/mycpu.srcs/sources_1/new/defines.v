@@ -1,4 +1,5 @@
 //***************************     全局宏定义   *************************** 
+
 `define RstEnable       1'b1        //复位信号有效
 `define RstDisable      1'b0        //复位信号无效
 `define ZeroWord        32'h0000_0000       //32位的0
@@ -16,21 +17,50 @@
 `define ChipDisable     1'b0    //芯片禁止
 
 
-//***************************     指令相关的宏定义   *************************** 
-`define EXE_ORI     6'b001_101       //指令ori的指令码
-`define EXE_NOP     6'b000_000
+//***************************     指令相关的宏定义  *************************** 
 
-//AluOp
+//special类指令的指令码，26~31bit：
+`define EXE_SPECIAL_INST    6'b000_000      //所有special类指令的共同指令码
+//special类指令的功能码，0~5bit：
+`define EXE_AND     6'b100_100      //AND的功能码
+`define EXE_OR      6'b100_101      //OR的功能码
+`define EXE_XOR     6'b100_110      //XOR的功能码
+`define EXE_NOR     6'b100_111      //NOR的功能码
+`define EXE_SLL     6'b000_000      //SLL的功能码
+`define EXE_SRL     6'b000_010      //SRL的功能码
+`define EXE_SRA     6'b000_011      //SRA的功能码
+`define EXE_SLLV     6'b000_100      //SLLV的功能码
+`define EXE_SRLV     6'b000_110      //SRLV的功能码
+`define EXE_SRAV     6'b000_111      //SRAV的功能码
+
+//非special类指令的指令码，26~31bit：
+`define EXE_ANDI    6'b001_100      //ANDI的指令码
+`define EXE_ORI     6'b001_101      //ori的指令码
+`define EXE_XORI    6'b001_110      //xori的指令码
+`define EXE_LUI     6'b001_111      //lui的指令码
+`define EXE_NOP     6'b000_000      //nop
+
+
+//Alu执行的运算类型op
+`define EXE_AND_OP      8'b0010_0100
 `define EXE_OR_OP       8'b0010_0101
+`define EXE_XOR_OP       8'b0010_0110 
+`define EXE_NOR_OP       8'b0010_0111
+`define EXE_SLL_OP       8'b0000_0000
+`define EXE_SRL_OP       8'b0000_0010
+`define EXE_SRA_OP       8'b0000_0011
+
 `define EXE_NOP_OP      8'b0000_0000
 
-//AluSel
-`define EXE_RES_LOGIC       3'b001
 
-`define EXE_RES_NOP     3'b000
+//Alu执行的结果类型sel
+`define EXE_RES_LOGIC       3'b001//逻辑
+`define EXE_RES_SHIFT       3'b010//移位
+`define EXE_RES_NOP         3'b000
 
 
 //***************************     指令寄存器ROM相关的宏定义   *************************** 
+
 `define InstAddrBus         31:0        // ROM的地址总线宽度
 `define InstBus             31:0        //ROM的数据总线宽度
 `define InstMemNum          131071      //ROM的实际大小为128KB
@@ -38,6 +68,7 @@
 
 
 //***************************     通用寄存器Regfile相关的宏定义   *************************** 
+
 `define RegAddrBus      4:0     //Regfile模块的地址线宽度，因为只有32个通用寄存器，故只需要5位
 `define RegBus          31:0    //Regfile模块的数据线宽度
 `define RegWidth        32      //通用寄存器的宽度

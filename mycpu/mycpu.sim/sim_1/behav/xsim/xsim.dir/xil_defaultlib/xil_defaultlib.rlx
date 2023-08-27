@@ -4,7 +4,7 @@ Nov  6 2019
 21:57:16
 C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.sim/sim_1/behav/xsim/glbl.v,1573089660,verilog,,,,glbl,,,,,,,,
 C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sim_1/new/openmips_min_sopc_tb.v,1692956569,verilog,,,,openmips_min_sopc_tb,,,../../../../mycpu.srcs/sources_1/new,,,,,
-C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/defines.v,1692953571,verilog,,C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex.v,,,,,../../../../mycpu.srcs/sources_1/new,,,,,
+C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/defines.v,1693129926,verilog,,C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex.v,,,,,../../../../mycpu.srcs/sources_1/new,,,,,
 C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex.v,1692932475,verilog,,C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex_mem.v,,ex,,,../../../../mycpu.srcs/sources_1/new,,,,,
 C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex_mem.v,1692932875,verilog,,C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/id.v,,ex_mem,,,../../../../mycpu.srcs/sources_1/new,,,,,
 C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/id.v,1693041249,verilog,,C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/id_ex.v,,id,,,../../../../mycpu.srcs/sources_1/new,,,,,

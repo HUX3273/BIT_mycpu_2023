@@ -39,9 +39,9 @@ module id(
     );
     
      //取指令的指令码和功能码
-    wire[5:0]   op = inst_i[31:26]; 
-    wire[4:0]   op2 = inst_i[10:6];     //sa
-    wire[5:0]   op3 = inst_i[5:0];      //func
+    wire[5:0]   op = inst_i[31:26];     //指令码
+    wire[4:0]   op2 = inst_i[10:6];     //移位位数
+    wire[5:0]   op3 = inst_i[5:0];      //功能码
     wire[4:0]   op4 = inst_i[20:16];
     
     //如果是I指令，需要存指令中的立即数
@@ -49,7 +49,7 @@ module id(
     
     reg instValid;  //指令是否有效    
     
-// ************************************ 一.指令译码 ************************************
+// ************************************ 一.指令译码 ************************************************************************
     always @ (*) begin
         if (rst == `RstEnable) begin
             aluop_o <= `EXE_NOP_OP;
@@ -75,23 +75,171 @@ module id(
             imm <= 32'h0;
             
             case (op)
+                `EXE_ANDI:   begin
+                    wreg_o <= `WriteEnable;         //需要写寄存器
+                    aluop_o <= `EXE_AND_OP;         //逻辑与运算
+                    alusel_o <= `EXE_RES_LOGIC;     //逻辑运算类型
+                    reg1_read_o <= 1'b1;            //需要读端口1
+                    reg2_read_o <= 1'b0;            //不需要读端口2
+                    imm <= {16'h0,inst_i[15:0]};    //i指令，取立即数，并将立即数扩展到32位
+                    wDestRegAddr_o <= inst_i[20:16];    //得到写寄存器地址
+                    instValid <= `InstValid;
+                end
                 `EXE_ORI:   begin
                     wreg_o <= `WriteEnable;         //需要写寄存器
                     aluop_o <= `EXE_OR_OP;          //逻辑或运算
                     alusel_o <= `EXE_RES_LOGIC;     //逻辑运算类型
-                    reg1_read_o <= 1'b1;        //需要读端口1
-                    reg2_read_o <= 1'b0;        //不需要读端口2
+                    reg1_read_o <= 1'b1;            //需要读端口1
+                    reg2_read_o <= 1'b0;            //不需要读端口2
                     imm <= {16'h0,inst_i[15:0]};    //i指令，取立即数，并将立即数扩展到32位
-                    wDestRegAddr_o <= inst_i[20:16];    //写寄存器地址
+                    wDestRegAddr_o <= inst_i[20:16];    //得到写寄存器地址
                     instValid <= `InstValid;
                 end
+                `EXE_ANDI:   begin
+                    wreg_o <= `WriteEnable;         //需要写寄存器
+                    aluop_o <= `EXE_AND_OP;         //逻辑与运算
+                    alusel_o <= `EXE_RES_LOGIC;     //逻辑运算类型
+                    reg1_read_o <= 1'b1;            //需要读端口1
+                    reg2_read_o <= 1'b0;            //不需要读端口2
+                    imm <= {16'h0,inst_i[15:0]};    //i指令，取立即数，并将立即数扩展到32位
+                    wDestRegAddr_o <= inst_i[20:16];    //得到写寄存器地址
+                    instValid <= `InstValid;
+                end
+                `EXE_XORI:   begin
+                    wreg_o <= `WriteEnable;         //需要写寄存器
+                    aluop_o <= `EXE_XOR_OP;         //逻辑异或运算
+                    alusel_o <= `EXE_RES_LOGIC;     //逻辑运算类型
+                    reg1_read_o <= 1'b1;            //需要读端口1
+                    reg2_read_o <= 1'b0;            //不需要读端口2
+                    imm <= {16'h0,inst_i[15:0]};    //i指令，取立即数，并将立即数扩展到32位
+                    wDestRegAddr_o <= inst_i[20:16];    //得到写寄存器地址
+                    instValid <= `InstValid;
+                end
+               `EXE_LUI:   begin
+                    wreg_o <= `WriteEnable;         //需要写寄存器
+                    aluop_o <= `EXE_OR_OP;          //逻辑或运算（需要保证值不变，故将取出的扩展立即数与0进行或运算）
+                    alusel_o <= `EXE_RES_LOGIC;     //逻辑运算类型
+                    reg1_read_o <= 1'b1;            //需要读端口1（恒为$0)
+                    reg2_read_o <= 1'b0;            //不需要读端口2
+                    imm <= {inst_i[15:0],16'h0};    //取立即数，高16位为imm，低16位补0，将此数据写回寄存器即可
+                    wDestRegAddr_o <= inst_i[20:16];    //得到写寄存器地址
+                    instValid <= `InstValid;
+                end
+                `EXE_SPECIAL_INST:   begin
+                    case (op2)      //根据sa判断指令类型
+                        5'b00000:   begin    
+                            case(op3)       //根据func判断指令类型
+                                `EXE_OR:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_OR_OP;          //逻辑或运算
+                                    alusel_o <= `EXE_RES_LOGIC;     //逻辑运算类型
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                `EXE_AND:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_AND_OP;          //逻辑或运算
+                                    alusel_o <= `EXE_RES_LOGIC;     //逻辑运算类型
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                `EXE_XOR:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_XOR_OP;          //逻辑或运算
+                                    alusel_o <= `EXE_RES_LOGIC;     //逻辑运算类型
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                `EXE_NOR:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_NOR_OP;          //逻辑或运算
+                                    alusel_o <= `EXE_RES_LOGIC;     //逻辑运算类型
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                `EXE_SLLV:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_SLL_OP;          //左移运算
+                                    alusel_o <= `EXE_RES_SHIFT;     //移位运算
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                `EXE_SRLV:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_SRL_OP;          //逻辑右移运算
+                                    alusel_o <= `EXE_RES_SHIFT;     //移位运算
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                `EXE_SRAV:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_SRA_OP;          //算术右移运算
+                                    alusel_o <= `EXE_RES_SHIFT;     //移位运算
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                default:    begin
+                                end
+                            endcase // case func
+                        end
+                        default:    begin
+                        end
+                   endcase  // case sa
+                end // op = special
                 default:    begin
                 end
-            endcase
-        end//if
-    end//always 
+            endcase // case op
+            
+            if(inst_i[31:21] == 11'b000000_00000)   begin
+                if(op3 == `EXE_SLL) begin
+                    wreg_o <= `WriteEnable;         //需要写寄存器
+                    aluop_o <= `EXE_SLL_OP;          //左移运算
+                    alusel_o <= `EXE_RES_SHIFT;     //移位运算
+                    reg1_read_o <= 1'b0;            //不需要读端口1
+                    reg2_read_o <= 1'b1;            //需要读端口2
+                    imm <= { 27'b0 , inst_i[10:6] };    //取sa存到立即数后五位中
+                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                    instValid <= `InstValid;
+                end else if (op3 == `EXE_SRL)   begin
+                    wreg_o <= `WriteEnable;         //需要写寄存器
+                    aluop_o <= `EXE_SRL_OP;          //逻辑右移运算
+                    alusel_o <= `EXE_RES_SHIFT;     //移位运算
+                    reg1_read_o <= 1'b0;            //不需要读端口1
+                    reg2_read_o <= 1'b1;            //需要读端口2
+                    imm <= { 27'b0 , inst_i[10:6] };    //取sa存到立即数后五位中
+                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                    instValid <= `InstValid;
+                end else if (op3 == `EXE_SRA)   begin
+                    wreg_o <= `WriteEnable;         //需要写寄存器
+                    aluop_o <= `EXE_SRA_OP;          //算术右移运算
+                    alusel_o <= `EXE_RES_SHIFT;     //
+                    reg1_read_o <= 1'b0;            //不需要读端口1
+                    reg2_read_o <= 1'b1;            //需要读端口2
+                    imm <= { 27'b0 , inst_i[10:6] };    //取sa存到立即数后五位中
+                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                    instValid <= `InstValid;
+                end
+            end 
+            
+        end //if
+    end //always 
     
-// ************************************ 二.确定源操作数1 ************************************
+    
+// ************************************ 二.确定源操作数1 ************************************************************************
     always @ (*) begin 
         if(rst == `RstEnable) begin
             reg1_o <= 32'h0;
@@ -110,7 +258,7 @@ module id(
         end
     end
     
-// ************************************ 三.确定源操作数2 ************************************
+// ************************************ 三.确定源操作数2 ************************************************************************
     always @ (*) begin 
         if(rst == `RstEnable) begin
             reg2_o <= 32'h0;

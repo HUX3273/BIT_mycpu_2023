@@ -30,6 +30,13 @@ R型：
 | srlv | 000000 rs(5) rt(5) rd(5) 00000 000110 | srlv rd,rt,rs | rd <- rt>>rs【4:0】(logic) | 逻辑右移（注意rt、rd、rs顺序） |
 | srav | 000000 rs(5) rt(5) rd(5) 00000 000111 | srav rd,rt,rs | rd <- rt>>rs【4:0】(arithmetic) | 逻辑右移（注意rt、rd、rs顺序） |
 |  |  |  |  |  |
+| add | 000000 rs(5) rt(5) rd(5) 00000 100000 | add rd,rs,rt | rd <- rs+rt | 有符号数运算，溢出检查 |
+| addu | 000000 rs(5) rt(5) rd(5) 00000 100001 | addu rd,rs,rt | rd <- rs+rt | 无符号数运算，不进行溢出检查 |
+| sub | 000000 rs(5) rt(5) rd(5) 00000 100010 | sub rd,rs,rt | rd <- rs-rt | 有符号数运算，溢出检查 |
+| subu | 000000 rs(5) rt(5) rd(5) 00000 100011 | subu rd,rs,rt | rd <- rs-rt | 无符号数运算，不进行溢出检查 |
+| slt | 000000 rs(5) rt(5) rd(5) 00000 101010 | slt rd,rs,rt | rd <- (rs<rt) | 有符号数比较，若rs<rt则rd<-1,否则rd<-0 |
+| sltu | 000000 rs(5) rt(5) rd(5) 00000 101011 | sltu rd,rs,rt | rd <- (rs<rt) | 无符号数比较，若rs<rt则rd<-1,否则rd<-0 |
+|  |  |  |  |  |
 | nop | 000000 00000 00000 00000 00000 000000 | nop |  | 不难发现nop指令和sll $0,$0,0 的机器码完全相同 |
 
 <br />

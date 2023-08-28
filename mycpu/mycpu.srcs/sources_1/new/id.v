@@ -125,7 +125,7 @@ module id(
                     wDestRegAddr_o <= inst_i[20:16];    //得到写寄存器地址
                     instValid <= `InstValid;
                 end
-                `EXE_SPECIAL_INST:   begin
+                `EXE_SPECIAL_INST:   begin  //special类指令
                     case (op2)      //根据sa判断指令类型
                         5'b00000:   begin    
                             case(op3)       //根据func判断指令类型
@@ -192,6 +192,62 @@ module id(
                                     wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
                                     instValid <= `InstValid;
                                 end
+                                `EXE_ADD:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_ADD_OP;          //有符号加运算
+                                    alusel_o <= `EXE_RES_ARITHMETIC;     //算术运算
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                `EXE_ADDU:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_ADDU_OP;          //无符号加运算
+                                    alusel_o <= `EXE_RES_ARITHMETIC;     //算术运算
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                `EXE_SUB:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_SUB_OP;          //有符号减运算
+                                    alusel_o <= `EXE_RES_ARITHMETIC;     //算术运算
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                `EXE_SUBU:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_SUBU_OP;          //无符号减运算
+                                    alusel_o <= `EXE_RES_ARITHMETIC;     //算术运算
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                `EXE_SLT:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_SLT_OP;          //有符号比较运算
+                                    alusel_o <= `EXE_RES_ARITHMETIC;     //算术运算
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                `EXE_SLTU:    begin
+                                    wreg_o <= `WriteEnable;         //需要写寄存器
+                                    aluop_o <= `EXE_SLTU_OP;          //无符号比较运算
+                                    alusel_o <= `EXE_RES_ARITHMETIC;     //算术运算
+                                    reg1_read_o <= 1'b1;            //需要读端口1
+                                    reg2_read_o <= 1'b1;            //需要读端口2
+                                    wDestRegAddr_o <= inst_i[15:11];    //得到写寄存器地址
+                                    instValid <= `InstValid;
+                                end
+                                
+                                
                                 default:    begin
                                 end
                             endcase // case func

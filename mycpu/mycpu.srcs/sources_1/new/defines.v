@@ -21,6 +21,7 @@
 
 //special类指令的指令码，26~31bit：
 `define EXE_SPECIAL_INST    6'b000_000      //所有special类指令的共同指令码
+
 //special类指令的功能码，0~5bit：
 `define EXE_AND     6'b100_100      //AND的功能码
 `define EXE_OR      6'b100_101      //OR的功能码
@@ -29,9 +30,16 @@
 `define EXE_SLL     6'b000_000      //SLL的功能码
 `define EXE_SRL     6'b000_010      //SRL的功能码
 `define EXE_SRA     6'b000_011      //SRA的功能码
-`define EXE_SLLV     6'b000_100      //SLLV的功能码
-`define EXE_SRLV     6'b000_110      //SRLV的功能码
-`define EXE_SRAV     6'b000_111      //SRAV的功能码
+`define EXE_SLLV    6'b000_100      //SLLV的功能码
+`define EXE_SRLV    6'b000_110      //SRLV的功能码
+`define EXE_SRAV    6'b000_111      //SRAV的功能码
+
+`define EXE_ADD     6'b100_000      //ADD的功能码（检测溢出，发生溢出时不保存结果）
+`define EXE_ADDU    6'b100_001      //ADDU的功能码（无符号数运算不检测溢出）
+`define EXE_SUB     6'b100_010      //SUB的功能码
+`define EXE_SUBU    6'b100_011      //SUBU的功能码
+`define EXE_SLT     6'b101_010      //SLT的功能码
+`define EXE_SLTU    6'b101_011      //SLTU的功能码
 
 //非special类指令的指令码，26~31bit：
 `define EXE_ANDI    6'b001_100      //ANDI的指令码
@@ -50,12 +58,20 @@
 `define EXE_SRL_OP       8'b0000_0010
 `define EXE_SRA_OP       8'b0000_0011
 
+`define EXE_ADD_OP      8'b0010_0000
+`define EXE_ADDU_OP     8'b0010_0001
+`define EXE_SUB_OP      8'b0010_0010
+`define EXE_SUBU_OP      8'b0010_0011
+`define EXE_SLT_OP      8'b0010_1010
+`define EXE_SLTU_OP     8'b0010_1011
+
 `define EXE_NOP_OP      8'b0000_0000
 
 
 //Alu执行的结果类型sel
 `define EXE_RES_LOGIC       3'b001//逻辑
 `define EXE_RES_SHIFT       3'b010//移位
+`define EXE_RES_ARITHMETIC  3'b011//算术
 `define EXE_RES_NOP         3'b000
 
 
@@ -63,8 +79,8 @@
 
 `define InstAddrBus         31:0        // ROM的地址总线宽度
 `define InstBus             31:0        //ROM的数据总线宽度
-`define InstMemNum          131071      //ROM的实际大小为128KB
-`define InstMemNumLog2      17          //ROM实际的地址宽度
+`define InstMemNum          4096        //ROM的实际大小为4096B
+`define InstMemNumLog2      10          //ROM实际的地址宽度,2^10=1K,1K*4B=4KB
 
 
 //***************************     通用寄存器Regfile相关的宏定义   *************************** 

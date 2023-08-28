@@ -57,7 +57,7 @@ module regfile(
         end else if((rRegAddr2 == wRegAddr) && (we == `WriteEnable) && (re2 == `ReadEnable)) begin  //Ð´ºó¶Á
             rdata2 <= wdata;
         end else if(re2 == `ReadEnable) begin
-            rdata2 <= regs[rRegAddr1];
+            rdata2 <= regs[rRegAddr2];
         end else begin
             rdata2 <= `ZeroWord;
         end

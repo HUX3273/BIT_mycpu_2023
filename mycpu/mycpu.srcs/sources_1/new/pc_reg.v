@@ -18,7 +18,7 @@ module pc_reg(
     
     always @ (posedge clk) begin
         if (ce ==  `ChipDisable) begin
-            pc <=  32'h0000_0000;   //指令ROM芯片禁用时pc置为0
+            pc <=  32'hbfc0_0000;   //指令ROM芯片禁用时pc置为指令起始地址
         end else begin 
             pc <= pc + 32'h4;   //每条MIPS指令都是等长的32位，4字节，故pc + 4
         end

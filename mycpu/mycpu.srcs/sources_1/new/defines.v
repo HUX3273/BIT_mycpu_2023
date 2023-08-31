@@ -42,6 +42,7 @@
 `define EXE_SLTU    6'b101_011      //SLTU的功能码
 
 //非special类指令的指令码，26~31bit：
+`define EXE_J       6'b000_010      //j的指令码
 `define EXE_ANDI    6'b001_100      //ANDI的指令码
 `define EXE_ORI     6'b001_101      //ori的指令码
 `define EXE_XORI    6'b001_110      //xori的指令码
@@ -50,6 +51,7 @@
 
 
 //Alu执行的运算类型op
+`define EXE_J_OP        8'b0100_0010
 `define EXE_AND_OP      8'b0010_0100
 `define EXE_OR_OP       8'b0010_0101
 `define EXE_XOR_OP       8'b0010_0110 
@@ -72,6 +74,7 @@
 `define EXE_RES_LOGIC       3'b001//逻辑
 `define EXE_RES_SHIFT       3'b010//移位
 `define EXE_RES_ARITHMETIC  3'b011//算术
+`define EXE_RES_JUMP        3'b100//跳转
 `define EXE_RES_NOP         3'b000
 
 

@@ -25,6 +25,8 @@ module openmips(
     wire[`RegBus]       id_reg2_o;
     wire                id_wreg_o;
     wire[`RegAddrBus]   id_wDestRegAddr_o;
+    wire                id_in_delayslot_o;
+    wire                id_next_inst_in_delayslot_o;
     
     //id_ex -> ex
     wire[`AluOpBus]     ex_aluop_i;
@@ -33,6 +35,8 @@ module openmips(
     wire[`RegBus]       ex_reg2_i;
     wire                ex_wreg_i;
     wire[`RegAddrBus]   ex_wDestRegAddr_i;
+    wire                ex_in_delayslot_o;      
+    
     
     //ex -> ex_mem
     //ex -> id（数据冒险）
@@ -64,6 +68,13 @@ module openmips(
     wire[`RegAddrBus]   reg1_addr;  
     wire[`RegAddrBus]   reg2_addr;  
     
+    //id -> pc
+    wire                branch_flag;
+    wire[`RegBus]       branch_target_addr;
+         
+    //id_ex -> id
+    wire                in_delayslot;
+    
     
     
     
@@ -72,7 +83,8 @@ module openmips(
     pc_reg pc_reg0(
         .clk(clk),  .rst(rst),  
         //输出到指令rom的信息（pc还会传给if_id段）
-        .pc(pc),    .ce(rom_ce_o) 
+        .pc(pc),    .ce(rom_ce_o),
+        .branch_flag_i(branch_flag),    .branch_target_addr_i(branch_target_addr)
     );
     
     assign rom_addr_o = pc; //指令rom的指令地址即pc，指令rom根据pc取出指令后，在下个时钟周期通过rom_data_i送回本模块
@@ -103,8 +115,12 @@ module openmips(
         
         //连接数据旁路，解决数据冒险
         .ex_wreg_i(ex_wreg_o),   .ex_wDestRegAddr_i(ex_wDestRegAddr_o),   .ex_wdata_i(ex_wdata_o),
-        .mem_wreg_i(mem_wreg_o),   .mem_wDestRegAddr_i(mem_wDestRegAddr_o),   .mem_wdata_i(mem_wdata_o)
-
+        .mem_wreg_i(mem_wreg_o),   .mem_wDestRegAddr_i(mem_wDestRegAddr_o),   .mem_wdata_i(mem_wdata_o),
+        
+        //J
+        .branch_flag_o(branch_flag),    .branch_target_addr_o(branch_target_addr),
+        .in_delayslot_o(id_in_delayslot_o), .next_inst_in_delayslot_o(id_next_inst_in_delayslot_o),
+        .in_delayslot_i(in_delayslot)
     );
     
     //regfile实例化（包括了写回段）
@@ -127,7 +143,12 @@ module openmips(
         //传递到ex段的信息
         .ex_aluop(ex_aluop_i),  .ex_alusel(ex_alusel_i), 
         .ex_reg1(ex_reg1_i),    .ex_reg2(ex_reg2_i), 
-        .ex_wDestRegAddr(ex_wDestRegAddr_i),    .ex_wreg(ex_wreg_i)
+        .ex_wDestRegAddr(ex_wDestRegAddr_i),    .ex_wreg(ex_wreg_i),
+        
+        //J
+        .id_in_delayslot(id_in_delayslot_o),    .next_inst_in_delayslot_i(id_next_inst_in_delayslot_o),
+        .in_delayslot_o(in_delayslot),      .ex_in_delayslot(ex_in_delayslot_o)
+        
     );
     
     //ex实例化
@@ -141,7 +162,10 @@ module openmips(
         
         //输出到ex_mem的信息
         .wreg_o(ex_wreg_o),     .wDestRegAddr_o(ex_wDestRegAddr_o),
-        .wdata_o(ex_wdata_o)
+        .wdata_o(ex_wdata_o),
+        
+        //J
+        .in_delayslot_i(ex_in_delayslot_o)
     );
     
     //ex_mem实例化

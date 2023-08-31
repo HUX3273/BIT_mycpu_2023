@@ -12,7 +12,11 @@ module ex(
     //执行段的输出结果
     output  reg                 wreg_o, 
     output  reg[`RegAddrBus]    wDestRegAddr_o,
-    output  reg[31:0]           wdata_o       //执行阶段计算出写入寄存器的数据
+    output  reg[31:0]           wdata_o,       //执行阶段计算出写入寄存器的数据
+    
+    //
+    input   wire                in_delayslot_i
+    
     );
     
 
@@ -38,6 +42,8 @@ module ex(
             logicout <= 32'h0;
             shiftres <= 32'h0;
             arithmeticres <= 32'h0;
+        end else if(in_delayslot_i == 1) begin
+            //不执行延迟槽指令
         end else begin
             case (aluop_i)
                 //逻辑
@@ -88,6 +94,11 @@ module ex(
                     arithmeticres <= src1_i < src2_i ? 1 : 0;
                 end
                 
+                //跳转
+                `EXE_J_OP: begin
+                    
+                end
+                
                 default:    begin
                     logicout <= 32'h0;
                     shiftres <= 32'h0;
@@ -100,7 +111,9 @@ module ex(
 // ************************************ 二.根据alusel选择运算结果 ************************************************************************
     always @ (*) begin
         wDestRegAddr_o <= wDestRegAddr_i;
-        if ( ((aluop_i ==`EXE_ADD_OP)||(aluop_i ==`EXE_SUB_OP))&& (overflow == 1) )   begin
+        if ( ((aluop_i ==`EXE_ADD_OP)||(aluop_i ==`EXE_SUB_OP))&& (overflow == 1) ) begin
+            wreg_o <= `WriteDisable;
+        end else if (in_delayslot_i == 1) begin
             wreg_o <= `WriteDisable;
         end else begin
             wreg_o <= wreg_i;
@@ -117,7 +130,7 @@ module ex(
                 wdata_o <= arithmeticres;
             end
             
-            default:        begin
+            default: begin
                 wdata_o <= 32'h0;
             end
         endcase

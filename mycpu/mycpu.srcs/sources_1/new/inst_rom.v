@@ -11,7 +11,7 @@ module inst_rom(
     
     //读文件"inst_rom.data"到指令rom中，仅仿真，综合无效
     //按照需要测试的文件修改"inst_rom.data"
-    initial $readmemh ("inst_rom3.data",inst_mem);
+    initial $readmemh ("inst_rom4.data",inst_mem);
     
     //
     always @ (*) begin

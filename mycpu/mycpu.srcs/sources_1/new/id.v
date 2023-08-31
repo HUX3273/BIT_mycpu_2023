@@ -34,7 +34,14 @@ module id(
     //2.mem段传回数据可以解决相隔一条指令的数据相关
     input   wire                mem_wreg_i,
     input   wire[`RegAddrBus]   mem_wDestRegAddr_i,
-    input   wire[`RegBus]       mem_wdata_i
+    input   wire[`RegBus]       mem_wdata_i,
+    
+    //指令跳转
+    output  reg                     branch_flag_o,
+    output  reg[`InstAddrBus]       branch_target_addr_o,
+    output  reg                     in_delayslot_o,
+    output  reg                     next_inst_in_delayslot_o,
+    input   wire                    in_delayslot_i
     
     );
     
@@ -46,6 +53,10 @@ module id(
     
     //如果是I指令，需要存指令中的立即数
     reg[`RegBus]    imm;
+    
+    //
+    wire[`RegBus] pc_plus_4;
+    assign pc_plus_4 = pc_i + 4;//保存该pc下一条指令的地址
     
     reg instValid;  //指令是否有效    
     
@@ -62,6 +73,10 @@ module id(
             reg1_addr_o <= `NOPRegAddr;
             reg2_addr_o <= `NOPRegAddr;
             imm <= 32'h0;
+            
+            branch_flag_o <= 0;
+            branch_target_addr_o <= 0;
+            next_inst_in_delayslot_o <= 0;
         end else begin
             aluop_o <= `EXE_NOP_OP;
             alusel_o <= `EXE_RES_NOP;
@@ -74,7 +89,24 @@ module id(
             reg2_addr_o <= inst_i[20:16];
             imm <= 32'h0;
             
+            branch_flag_o <= 0;
+            branch_target_addr_o <= 0;
+            next_inst_in_delayslot_o <= 0;
             case (op)
+                `EXE_J:   begin
+                    wreg_o <= `WriteDisable;         //不需要写寄存器
+                    aluop_o <= `EXE_J_OP;         //运算
+                    alusel_o <= `EXE_RES_JUMP;     //运算类型
+                    reg1_read_o <= 1'b0;            //不需要读端口1
+                    reg2_read_o <= 1'b0;            //不需要读端口2
+                    instValid <= `InstValid;
+                    if (in_delayslot_i == 0) begin  //避免有两条连续跳转指令
+                        branch_flag_o <= 1;
+                    end
+                    branch_target_addr_o <= { pc_plus_4[31:28] , inst_i[25:0] , 2'b00 };
+                    next_inst_in_delayslot_o <= 1;
+                         
+                end
                 `EXE_ANDI:   begin
                     wreg_o <= `WriteEnable;         //需要写寄存器
                     aluop_o <= `EXE_AND_OP;         //逻辑与运算
@@ -333,5 +365,13 @@ module id(
         end
     end 
     
-    
+// ************************************ 四.告诉后续流水段此指令是否为延迟槽指令 ************************************************************************
+    always @ (*) begin 
+        if(rst == `RstEnable) begin
+            in_delayslot_o <= 0;
+        end else begin
+            in_delayslot_o <= in_delayslot_i;
+        end
+    end
+         
 endmodule

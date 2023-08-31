@@ -17,7 +17,13 @@ module id_ex(
     output   reg[`RegBus]       ex_reg1,    //传给ex的ALU操作数1
     output   reg[`RegBus]       ex_reg2,    //传给ex的ALU操作数2
     output   reg[`RegAddrBus]   ex_wDestRegAddr,    //写寄存器地址和写使能信号会一直在流水寄存器中传递到写回段wb
-    output   reg                ex_wreg
+    output   reg                ex_wreg,
+    
+    //
+    input   wire                id_in_delayslot,
+    input   wire                next_inst_in_delayslot_i,
+    output  reg                 ex_in_delayslot,
+    output  reg                 in_delayslot_o
     );
     
     always @ (posedge clk) begin
@@ -28,6 +34,9 @@ module id_ex(
             ex_reg2 <= 32'h0;
             ex_wDestRegAddr <= `NOPRegAddr;
             ex_wreg <= `WriteDisable;
+            
+            ex_in_delayslot <= 0;
+            in_delayslot_o <= 0;
         end else begin
             ex_aluop <= id_aluop;
             ex_alusel <= id_alusel;
@@ -35,6 +44,9 @@ module id_ex(
             ex_reg2 <= id_reg2;
             ex_wDestRegAddr <= id_wDestRegAddr;
             ex_wreg <= id_wreg;
+            
+            ex_in_delayslot <= id_in_delayslot;
+            in_delayslot_o <= next_inst_in_delayslot_i;
         end
     end
     

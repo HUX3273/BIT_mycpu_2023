@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="129230fs"></ZoomStartTime>
-      <ZoomEndTime time="341867fs"></ZoomEndTime>
-      <Cursor1Time time="210000fs"></Cursor1Time>
+      <ZoomStartTime time="334550fs"></ZoomStartTime>
+      <ZoomEndTime time="555480fs"></ZoomEndTime>
+      <Cursor1Time time="450000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="138"></ValueColumnWidth>
+      <ValueColumnWidth column_width="120"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="8" />
+   <WVObjectSize size="14" />
    <wvobject fp_name="/openmips_min_sopc_tb/CLOCK_50" type="logic">
       <obj_property name="ElementShortName">CLOCK_50</obj_property>
       <obj_property name="ObjectShortName">CLOCK_50</obj_property>
@@ -51,5 +51,29 @@
    <wvobject fp_name="/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/regfile0/regs[4]" type="array">
       <obj_property name="ElementShortName">[4][31:0]</obj_property>
       <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/regfile0/regs[5]" type="array">
+      <obj_property name="ElementShortName">[5][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/id0/branch_flag_o" type="logic">
+      <obj_property name="ElementShortName">branch_flag_o</obj_property>
+      <obj_property name="ObjectShortName">branch_flag_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/id0/branch_target_addr_o" type="array">
+      <obj_property name="ElementShortName">branch_target_addr_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_target_addr_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/ex0/in_delayslot_i" type="logic">
+      <obj_property name="ElementShortName">in_delayslot_i</obj_property>
+      <obj_property name="ObjectShortName">in_delayslot_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/ex0/wreg_o" type="logic">
+      <obj_property name="ElementShortName">wreg_o</obj_property>
+      <obj_property name="ObjectShortName">wreg_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/ex0/wDestRegAddr_o" type="array">
+      <obj_property name="ElementShortName">wDestRegAddr_o[4:0]</obj_property>
+      <obj_property name="ObjectShortName">wDestRegAddr_o[4:0]</obj_property>
    </wvobject>
 </wave_config>

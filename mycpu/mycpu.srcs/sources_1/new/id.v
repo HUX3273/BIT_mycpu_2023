@@ -103,7 +103,7 @@ module id(
                     if (in_delayslot_i == 0) begin  //避免有两条连续跳转指令
                         branch_flag_o <= 1;
                     end
-                    branch_target_addr_o <= { pc_plus_4[31:20] , inst_i[19:0]  };
+                    branch_target_addr_o <= {  pc_plus_4[31:28] , inst_i[25:0] , 2'b00 };
                     next_inst_in_delayslot_o <= 1;
                          
                 end

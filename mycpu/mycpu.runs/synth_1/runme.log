@@ -1,0 +1,564 @@
+
+*** Running vivado
+    with args -log openmips_min_sopc.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source openmips_min_sopc.tcl
+
+
+****** Vivado v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source openmips_min_sopc.tcl -notrace
+Command: synth_design -top openmips_min_sopc -part xc7a35tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcsg324-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4120 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 844.625 ; gain = 234.828
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'openmips_min_sopc' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/openmips_min_sopc.v:3]
+INFO: [Synth 8-6157] synthesizing module 'openmips' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/openmips.v:3]
+INFO: [Synth 8-6157] synthesizing module 'pc_reg' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/pc_reg.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'pc_reg' (1#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/pc_reg.v:3]
+INFO: [Synth 8-6157] synthesizing module 'if_id' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/if_id.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'if_id' (2#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/if_id.v:6]
+INFO: [Synth 8-6157] synthesizing module 'id' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/id.v:5]
+WARNING: [Synth 8-151] case item 6'b001100 is unreachable [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/id.v:95]
+INFO: [Synth 8-6155] done synthesizing module 'id' (3#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/id.v:5]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/regfile.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (4#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/regfile.v:4]
+INFO: [Synth 8-6157] synthesizing module 'id_ex' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/id_ex.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'id_ex' (5#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/id_ex.v:4]
+INFO: [Synth 8-6157] synthesizing module 'ex' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'ex' (6#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex.v:3]
+INFO: [Synth 8-6157] synthesizing module 'ex_mem' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex_mem.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'ex_mem' (7#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex_mem.v:3]
+INFO: [Synth 8-6157] synthesizing module 'mem' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/mem.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'mem' (8#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/mem.v:3]
+INFO: [Synth 8-6157] synthesizing module 'mem_wb' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/mem_wb.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'mem_wb' (9#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/mem_wb.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'openmips' (10#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/openmips.v:3]
+INFO: [Synth 8-6157] synthesizing module 'inst_rom' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.runs/synth_1/.Xil/Vivado-9612-HUX-Y7000P/realtime/inst_rom_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'inst_rom' (11#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.runs/synth_1/.Xil/Vivado-9612-HUX-Y7000P/realtime/inst_rom_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'seg_cnt' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/seg.v:2]
+	Parameter _0 bound to: 8'b00111111 
+	Parameter _1 bound to: 8'b00000110 
+	Parameter _2 bound to: 8'b01011011 
+	Parameter _3 bound to: 8'b01001111 
+	Parameter _4 bound to: 8'b01100110 
+	Parameter _5 bound to: 8'b01101101 
+	Parameter _6 bound to: 8'b01111101 
+	Parameter _7 bound to: 8'b00000111 
+	Parameter _8 bound to: 8'b01111111 
+	Parameter _9 bound to: 8'b01101111 
+	Parameter IDLE bound to: 3'b000 
+	Parameter STEP1 bound to: 3'b001 
+	Parameter STEP2 bound to: 3'b011 
+	Parameter STEP3 bound to: 3'b100 
+	Parameter STEP4 bound to: 3'b101 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/seg.v:96]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/seg.v:123]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/seg.v:80]
+INFO: [Synth 8-6155] done synthesizing module 'seg_cnt' (12#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/seg.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'openmips_min_sopc' (13#1) [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/openmips_min_sopc.v:3]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[27]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[26]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[25]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[24]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[23]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[22]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[21]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[20]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[19]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[18]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[17]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[16]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[15]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[14]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[13]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[12]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[11]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[10]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[9]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[8]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[7]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[6]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[5]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[4]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[3]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[2]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[1]
+WARNING: [Synth 8-3331] design seg_cnt has unconnected port data_i[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 918.156 ; gain = 308.359
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 918.156 ; gain = 308.359
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 918.156 ; gain = 308.359
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 918.156 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/ip/inst_rom/inst_rom/inst_rom_in_context.xdc] for cell 'inst_rom0'
+Finished Parsing XDC File [c:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/ip/inst_rom/inst_rom/inst_rom_in_context.xdc] for cell 'inst_rom0'
+Parsing XDC File [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/constrs_1/new/seg.xdc]
+Finished Parsing XDC File [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/constrs_1/new/seg.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/constrs_1/new/seg.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/openmips_min_sopc_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/openmips_min_sopc_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1021.844 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1021.844 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 1021.844 ; gain = 412.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 1021.844 ; gain = 412.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for inst_rom0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 1021.844 ; gain = 412.047
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "wreg_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "aluop_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "alusel_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "wreg_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "aluop_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "alusel_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "logicout" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "shiftres" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "arithmeticres" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'step_reg' in module 'seg_cnt'
+WARNING: [Synth 8-327] inferring latch for variable 'arithmeticres_reg' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex.v:44]
+WARNING: [Synth 8-327] inferring latch for variable 'shiftres_reg' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex.v:43]
+WARNING: [Synth 8-327] inferring latch for variable 'logicout_reg' [C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/ex.v:42]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                   STEP1 |                              001 |                              001
+                   STEP2 |                              010 |                              011
+                   STEP3 |                              011 |                              100
+                   STEP4 |                              100 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'step_reg' using encoding 'sequential' in module 'seg_cnt'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 1021.844 ; gain = 412.047
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   2 Input     24 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 38    
+	               24 Bit    Registers := 1     
+	                8 Bit    Registers := 3     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 19    
+	   7 Input     32 Bit        Muxes := 2     
+	   4 Input     32 Bit        Muxes := 2     
+	  15 Input     32 Bit        Muxes := 2     
+	   2 Input     24 Bit        Muxes := 2     
+	   5 Input     24 Bit        Muxes := 1     
+	   5 Input      8 Bit        Muxes := 2     
+	   2 Input      7 Bit        Muxes := 4     
+	   7 Input      7 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 1     
+	  15 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 5     
+	   7 Input      5 Bit        Muxes := 1     
+	   4 Input      5 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 4     
+	   7 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	  15 Input      2 Bit        Muxes := 1     
+	  15 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 45    
+	   7 Input      1 Bit        Muxes := 4     
+	   4 Input      1 Bit        Muxes := 3     
+	  11 Input      1 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module pc_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module if_id 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+Module id 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 5     
+	   7 Input     32 Bit        Muxes := 2     
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 4     
+	   7 Input      7 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 1     
+	  15 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 4     
+	   7 Input      5 Bit        Muxes := 1     
+	   4 Input      5 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 4     
+	   7 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	  15 Input      2 Bit        Muxes := 1     
+	  15 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 10    
+	   7 Input      1 Bit        Muxes := 4     
+	   4 Input      1 Bit        Muxes := 3     
+Module regfile 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 32    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 8     
+	   2 Input      1 Bit        Muxes := 32    
+Module id_ex 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
+Module ex 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 3     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 5     
+	   4 Input     32 Bit        Muxes := 1     
+	  15 Input     32 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 3     
+	  15 Input      1 Bit        Muxes := 2     
+Module ex_mem 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module mem 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+Module mem_wb 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module seg_cnt 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     24 Bit       Adders := 1     
++---Registers : 
+	               24 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     24 Bit        Muxes := 2     
+	   5 Input     24 Bit        Muxes := 1     
+	   5 Input      8 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 1     
+	  11 Input      1 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5587] ROM size for "arithmeticres" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "shiftres" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "logicout" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-3886] merging instance 'openmips0/id_ex0/ex_aluop_reg[7]' (FDR) to 'openmips0/id_ex0/ex_aluop_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (openmips0/\id_ex0/ex_aluop_reg[4] )
+INFO: [Synth 8-3886] merging instance 'seg_cnt0/dig_2_reg[0]' (FD) to 'seg_cnt0/dig_2_reg[3]'
+INFO: [Synth 8-3886] merging instance 'seg_cnt0/dig_2_reg[3]' (FD) to 'seg_cnt0/dig_2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'seg_cnt0/dig_2_reg[1]' (FD) to 'seg_cnt0/dig_2_reg[2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\seg_cnt0/dig_2_reg[2] )
+INFO: [Synth 8-3886] merging instance 'seg_cnt0/sel_reg[2]' (FDCE) to 'seg_cnt0/sel_reg[7]'
+INFO: [Synth 8-3886] merging instance 'seg_cnt0/sel_reg[3]' (FDCE) to 'seg_cnt0/sel_reg[7]'
+INFO: [Synth 8-3886] merging instance 'seg_cnt0/sel_reg[4]' (FDCE) to 'seg_cnt0/sel_reg[7]'
+INFO: [Synth 8-3886] merging instance 'seg_cnt0/sel_reg[5]' (FDCE) to 'seg_cnt0/sel_reg[7]'
+INFO: [Synth 8-3886] merging instance 'seg_cnt0/sel_reg[6]' (FDCE) to 'seg_cnt0/sel_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\seg_cnt0/sel_reg[7] )
+INFO: [Synth 8-3886] merging instance 'openmips0/id_ex0/ex_alusel_reg[0]' (FDR) to 'openmips0/id_ex0/ex_aluop_reg[5]'
+INFO: [Synth 8-3886] merging instance 'openmips0/id_ex0/ex_alusel_reg[2]' (FDR) to 'openmips0/id_ex0/ex_aluop_reg[6]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:01 ; elapsed = 00:00:23 . Memory (MB): peak = 1021.844 ; gain = 412.047
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:02 ; elapsed = 00:00:30 . Memory (MB): peak = 1021.844 ; gain = 412.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:02 ; elapsed = 00:00:30 . Memory (MB): peak = 1021.844 ; gain = 412.047
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'openmips0/id_ex0/in_delayslot_o_reg' (FDR) to 'openmips0/id_ex0/ex_aluop_reg[6]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\openmips0/regfile0/regs_reg[0][31] )
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:02 ; elapsed = 00:00:31 . Memory (MB): peak = 1048.195 ; gain = 438.398
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:02 ; elapsed = 00:00:34 . Memory (MB): peak = 1053.523 ; gain = 443.727
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:02 ; elapsed = 00:00:34 . Memory (MB): peak = 1053.523 ; gain = 443.727
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:02 ; elapsed = 00:00:34 . Memory (MB): peak = 1053.523 ; gain = 443.727
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:02 ; elapsed = 00:00:34 . Memory (MB): peak = 1053.523 ; gain = 443.727
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:34 . Memory (MB): peak = 1053.523 ; gain = 443.727
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:02 ; elapsed = 00:00:34 . Memory (MB): peak = 1053.523 ; gain = 443.727
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |inst_rom      |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |inst_rom |     1|
+|2     |BUFG     |     4|
+|3     |CARRY4   |    37|
+|4     |LUT1     |    34|
+|5     |LUT2     |    60|
+|6     |LUT3     |    28|
+|7     |LUT4     |   149|
+|8     |LUT5     |   181|
+|9     |LUT6     |  1064|
+|10    |MUXF7    |   260|
+|11    |MUXF8    |    96|
+|12    |FDCE     |    29|
+|13    |FDPE     |     8|
+|14    |FDRE     |  1194|
+|15    |LDC      |    96|
+|16    |IBUF     |     2|
+|17    |OBUF     |    16|
++------+---------+------+
+
+Report Instance Areas: 
++------+-------------+---------+------+
+|      |Instance     |Module   |Cells |
++------+-------------+---------+------+
+|1     |top          |         |  3290|
+|2     |  openmips0  |openmips |  3132|
+|3     |    ex_mem0  |ex_mem   |    38|
+|4     |    ex0      |ex       |   129|
+|5     |    id_ex0   |id_ex    |   545|
+|6     |    if_id0   |if_id    |   464|
+|7     |    mem_wb0  |mem_wb   |    87|
+|8     |    pc_reg0  |pc_reg   |    13|
+|9     |    regfile0 |regfile  |  1856|
+|10    |  seg_cnt0   |seg_cnt  |   104|
++------+-------------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:02 ; elapsed = 00:00:34 . Memory (MB): peak = 1053.523 ; gain = 443.727
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:32 . Memory (MB): peak = 1053.523 ; gain = 340.039
+Synthesis Optimization Complete : Time (s): cpu = 00:00:02 ; elapsed = 00:00:34 . Memory (MB): peak = 1053.523 ; gain = 443.727
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 1065.906 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 489 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1065.906 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 96 instances were transformed.
+  LDC => LDCE: 96 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+102 Infos, 32 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:03 ; elapsed = 00:00:40 . Memory (MB): peak = 1065.906 ; gain = 728.328
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1065.906 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.runs/synth_1/openmips_min_sopc.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file openmips_min_sopc_utilization_synth.rpt -pb openmips_min_sopc_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Sep  3 18:40:21 2023...

@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="334550fs"></ZoomStartTime>
-      <ZoomEndTime time="555480fs"></ZoomEndTime>
+      <ZoomStartTime time="753460fs"></ZoomStartTime>
+      <ZoomEndTime time="1012790fs"></ZoomEndTime>
       <Cursor1Time time="450000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+      <ValueColumnWidth column_width="114"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="14" />
+   <WVObjectSize size="15" />
    <wvobject fp_name="/openmips_min_sopc_tb/CLOCK_50" type="logic">
       <obj_property name="ElementShortName">CLOCK_50</obj_property>
       <obj_property name="ObjectShortName">CLOCK_50</obj_property>
@@ -75,5 +75,9 @@
    <wvobject fp_name="/openmips_min_sopc_tb/openmips_min_sopc0/openmips0/ex0/wDestRegAddr_o" type="array">
       <obj_property name="ElementShortName">wDestRegAddr_o[4:0]</obj_property>
       <obj_property name="ObjectShortName">wDestRegAddr_o[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/openmips_min_sopc_tb/openmips_min_sopc0/seg_cnt0/data_i" type="array">
+      <obj_property name="ElementShortName">data_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_i[31:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -6,9 +6,9 @@ module openmips(
     
     input   wire[`RegBus]   rom_data_i, //从指令rom中取出的指令  
     output  wire[`RegBus]   rom_addr_o, //输出到指令rom的地址
-    output  wire            rom_ce_o    //指令rom的芯片使能信号
+    output  wire            rom_ce_o,    //指令rom的芯片使能信号
     
-
+    output  wire[`RegBus]   data_o  //输出到外设数据
     );
     
     
@@ -128,7 +128,9 @@ module openmips(
         .clk(clk),  .rst(rst),
         .we(wb_wreg_i), .wRegAddr(wb_wDestRegAddr_i),   .wdata(wb_wdata_i), //写端口1接收写回阶段数据wdata
         .re1(reg1_read),    .rRegAddr1(reg1_addr),   .rdata1(reg1_data),    //从读端口1按照地址取出数据rdata1并输出
-        .re2(reg2_read),    .rRegAddr2(reg2_addr),   .rdata2(reg2_data)     //从读端口2按照地址取出数据rdata2并输出
+        .re2(reg2_read),    .rRegAddr2(reg2_addr),   .rdata2(reg2_data),     //从读端口2按照地址取出数据rdata2并输出
+        
+        .data_o(data_o) //输出到外设
     );
     
     //id_ex实例化

@@ -12,6 +12,7 @@ verilog xil_defaultlib "C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sou
 "../../../../mycpu.srcs/sources_1/new/openmips_min_sopc.v" \
 "../../../../mycpu.srcs/sources_1/new/pc_reg.v" \
 "../../../../mycpu.srcs/sources_1/new/regfile.v" \
+"../../../../mycpu.srcs/sources_1/new/seg.v" \
 "../../../../mycpu.srcs/sim_1/new/openmips_min_sopc_tb.v" \
 
 # compile glbl module

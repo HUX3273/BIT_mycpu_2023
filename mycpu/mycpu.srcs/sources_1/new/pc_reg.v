@@ -26,7 +26,7 @@ module pc_reg(
         end else if(branch_flag_i == 1) begin
             pc <= branch_target_addr_i; //跳转到目标地址
         end else begin 
-            pc <= pc + 32'h1;   //每条MIPS指令都是等长的32位，4字节，故pc + 4
+            pc <= pc + 32'h1;   // (每条MIPS指令都是等长的32位，4字节，故pc + 4)
         end
     end
 endmodule

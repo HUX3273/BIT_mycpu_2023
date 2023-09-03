@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-// Date        : Sun Sep  3 13:16:12 2023
+// Date        : Sun Sep  3 13:27:13 2023
 // Host        : HUX-Y7000P running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/ip/inst_rom/inst_rom_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
+//               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ inst_rom_sim_netlist.v
 // Design      : inst_rom
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,7 +14,7 @@
 
 (* CHECK_LICENSE_TYPE = "inst_rom,dist_mem_gen_v8_0_13,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "dist_mem_gen_v8_0_13,Vivado 2019.2" *) 
 (* NotValidForBitStream *)
-module inst_rom
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (a,
     d,
     clk,
@@ -67,7 +67,7 @@ module inst_rom
   (* c_reg_a_d_inputs = "0" *) 
   (* c_sync_enable = "1" *) 
   (* c_width = "32" *) 
-  inst_rom_dist_mem_gen_v8_0_13 U0
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13 U0
        (.a(a),
         .clk(clk),
         .d(d),
@@ -97,8 +97,8 @@ endmodule
 (* C_MEM_INIT_FILE = "inst_rom.mif" *) (* C_MEM_TYPE = "1" *) (* C_PARSER_TYPE = "1" *) 
 (* C_PIPELINE_STAGES = "0" *) (* C_QCE_JOINED = "0" *) (* C_QUALIFY_WE = "0" *) 
 (* C_READ_MIF = "1" *) (* C_REG_A_D_INPUTS = "0" *) (* C_REG_DPRA_INPUT = "0" *) 
-(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "32" *) (* ORIG_REF_NAME = "dist_mem_gen_v8_0_13" *) 
-module inst_rom_dist_mem_gen_v8_0_13
+(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "32" *) 
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13
    (a,
     d,
     dpra,
@@ -239,7 +239,7 @@ module inst_rom_dist_mem_gen_v8_0_13
   assign qspo[0] = \<const0> ;
   GND GND
        (.G(\<const0> ));
-  inst_rom_dist_mem_gen_v8_0_13_synth \synth_options.dist_mem_inst 
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13_synth \synth_options.dist_mem_inst 
        (.a(a),
         .clk(clk),
         .d(d),
@@ -247,8 +247,7 @@ module inst_rom_dist_mem_gen_v8_0_13
         .we(we));
 endmodule
 
-(* ORIG_REF_NAME = "dist_mem_gen_v8_0_13_synth" *) 
-module inst_rom_dist_mem_gen_v8_0_13_synth
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13_synth
    (spo,
     clk,
     d,
@@ -266,7 +265,7 @@ module inst_rom_dist_mem_gen_v8_0_13_synth
   wire [31:0]spo;
   wire we;
 
-  inst_rom_spram \gen_sp_ram.spram_inst 
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_spram \gen_sp_ram.spram_inst 
        (.a(a),
         .clk(clk),
         .d(d),
@@ -274,8 +273,7 @@ module inst_rom_dist_mem_gen_v8_0_13_synth
         .we(we));
 endmodule
 
-(* ORIG_REF_NAME = "spram" *) 
-module inst_rom_spram
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_spram
    (spo,
     clk,
     d,
@@ -755,7 +753,7 @@ module inst_rom_spram
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "0" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000201)) 
+    .INIT(256'h00000000000000000000000000000000000000000000000000000000000098A0)) 
     ram_reg_0_255_0_0
        (.A(a[7:0]),
         .D(d[0]),
@@ -778,7 +776,7 @@ module inst_rom_spram
   (* ram_slice_begin = "10" *) 
   (* ram_slice_end = "10" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000003012)) 
     ram_reg_0_255_10_10
        (.A(a[7:0]),
         .D(d[10]),
@@ -794,7 +792,7 @@ module inst_rom_spram
   (* ram_slice_begin = "11" *) 
   (* ram_slice_end = "11" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000540)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000003E82)) 
     ram_reg_0_255_11_11
        (.A(a[7:0]),
         .D(d[11]),
@@ -810,7 +808,7 @@ module inst_rom_spram
   (* ram_slice_begin = "12" *) 
   (* ram_slice_end = "12" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000060)) 
+    .INIT(256'h000000000000000000000000000000000000000000000000000000000000DE90)) 
     ram_reg_0_255_12_12
        (.A(a[7:0]),
         .D(d[12]),
@@ -826,7 +824,7 @@ module inst_rom_spram
   (* ram_slice_begin = "13" *) 
   (* ram_slice_end = "13" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000180)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000001000)) 
     ram_reg_0_255_13_13
        (.A(a[7:0]),
         .D(d[13]),
@@ -842,7 +840,7 @@ module inst_rom_spram
   (* ram_slice_begin = "14" *) 
   (* ram_slice_end = "14" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000001000)) 
     ram_reg_0_255_14_14
        (.A(a[7:0]),
         .D(d[14]),
@@ -858,7 +856,7 @@ module inst_rom_spram
   (* ram_slice_begin = "15" *) 
   (* ram_slice_end = "15" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000001009)) 
     ram_reg_0_255_15_15
        (.A(a[7:0]),
         .D(d[15]),
@@ -874,7 +872,7 @@ module inst_rom_spram
   (* ram_slice_begin = "16" *) 
   (* ram_slice_end = "16" *) 
   RAM256X1S #(
-    .INIT(256'h00000000000000000000000000000000000000000000000000000000000004B5)) 
+    .INIT(256'h00000000000000000000000000000000000000000000000000000000000037C7)) 
     ram_reg_0_255_16_16
        (.A(a[7:0]),
         .D(d[16]),
@@ -890,7 +888,7 @@ module inst_rom_spram
   (* ram_slice_begin = "17" *) 
   (* ram_slice_end = "17" *) 
   RAM256X1S #(
-    .INIT(256'h00000000000000000000000000000000000000000000000000000000000000C6)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000D78)) 
     ram_reg_0_255_17_17
        (.A(a[7:0]),
         .D(d[17]),
@@ -906,7 +904,7 @@ module inst_rom_spram
   (* ram_slice_begin = "18" *) 
   (* ram_slice_end = "18" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000118)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
     ram_reg_0_255_18_18
        (.A(a[7:0]),
         .D(d[18]),
@@ -938,7 +936,7 @@ module inst_rom_spram
   (* ram_slice_begin = "1" *) 
   (* ram_slice_end = "1" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000400)) 
+    .INIT(256'h000000000000000000000000000000000000000000000000000000000000DC00)) 
     ram_reg_0_255_1_1
        (.A(a[7:0]),
         .D(d[1]),
@@ -954,7 +952,7 @@ module inst_rom_spram
   (* ram_slice_begin = "20" *) 
   (* ram_slice_end = "20" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000200)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
     ram_reg_0_255_20_20
        (.A(a[7:0]),
         .D(d[20]),
@@ -970,7 +968,7 @@ module inst_rom_spram
   (* ram_slice_begin = "21" *) 
   (* ram_slice_end = "21" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000740)) 
+    .INIT(256'h000000000000000000000000000000000000000000000000000000000000CC04)) 
     ram_reg_0_255_21_21
        (.A(a[7:0]),
         .D(d[21]),
@@ -986,7 +984,7 @@ module inst_rom_spram
   (* ram_slice_begin = "22" *) 
   (* ram_slice_end = "22" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000260)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000AA0)) 
     ram_reg_0_255_22_22
        (.A(a[7:0]),
         .D(d[22]),
@@ -1002,7 +1000,7 @@ module inst_rom_spram
   (* ram_slice_begin = "23" *) 
   (* ram_slice_end = "23" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000380)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
     ram_reg_0_255_23_23
        (.A(a[7:0]),
         .D(d[23]),
@@ -1018,7 +1016,7 @@ module inst_rom_spram
   (* ram_slice_begin = "24" *) 
   (* ram_slice_end = "24" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000200)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
     ram_reg_0_255_24_24
        (.A(a[7:0]),
         .D(d[24]),
@@ -1034,7 +1032,7 @@ module inst_rom_spram
   (* ram_slice_begin = "25" *) 
   (* ram_slice_end = "25" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000200)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
     ram_reg_0_255_25_25
        (.A(a[7:0]),
         .D(d[25]),
@@ -1050,7 +1048,7 @@ module inst_rom_spram
   (* ram_slice_begin = "26" *) 
   (* ram_slice_end = "26" *) 
   RAM256X1S #(
-    .INIT(256'h000000000000000000000000000000000000000000000000000000000000001F)) 
+    .INIT(256'h000000000000000000000000000000000000000000000000000000000000116D)) 
     ram_reg_0_255_26_26
        (.A(a[7:0]),
         .D(d[26]),
@@ -1066,7 +1064,7 @@ module inst_rom_spram
   (* ram_slice_begin = "27" *) 
   (* ram_slice_end = "27" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000200)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
     ram_reg_0_255_27_27
        (.A(a[7:0]),
         .D(d[27]),
@@ -1082,7 +1080,7 @@ module inst_rom_spram
   (* ram_slice_begin = "28" *) 
   (* ram_slice_end = "28" *) 
   RAM256X1S #(
-    .INIT(256'h000000000000000000000000000000000000000000000000000000000000001F)) 
+    .INIT(256'h000000000000000000000000000000000000000000000000000000000000116D)) 
     ram_reg_0_255_28_28
        (.A(a[7:0]),
         .D(d[28]),
@@ -1098,7 +1096,7 @@ module inst_rom_spram
   (* ram_slice_begin = "29" *) 
   (* ram_slice_end = "29" *) 
   RAM256X1S #(
-    .INIT(256'h000000000000000000000000000000000000000000000000000000000000001F)) 
+    .INIT(256'h000000000000000000000000000000000000000000000000000000000000116D)) 
     ram_reg_0_255_29_29
        (.A(a[7:0]),
         .D(d[29]),
@@ -1114,7 +1112,7 @@ module inst_rom_spram
   (* ram_slice_begin = "2" *) 
   (* ram_slice_end = "2" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000200)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000001000)) 
     ram_reg_0_255_2_2
        (.A(a[7:0]),
         .D(d[2]),
@@ -1162,7 +1160,7 @@ module inst_rom_spram
   (* ram_slice_begin = "3" *) 
   (* ram_slice_end = "3" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
+    .INIT(256'h000000000000000000000000000000000000000000000000000000000000D000)) 
     ram_reg_0_255_3_3
        (.A(a[7:0]),
         .D(d[3]),
@@ -1178,7 +1176,7 @@ module inst_rom_spram
   (* ram_slice_begin = "4" *) 
   (* ram_slice_end = "4" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000001004)) 
     ram_reg_0_255_4_4
        (.A(a[7:0]),
         .D(d[4]),
@@ -1194,7 +1192,7 @@ module inst_rom_spram
   (* ram_slice_begin = "5" *) 
   (* ram_slice_end = "5" *) 
   RAM256X1S #(
-    .INIT(256'h00000000000000000000000000000000000000000000000000000000000005E0)) 
+    .INIT(256'h000000000000000000000000000000000000000000000000000000000000DE80)) 
     ram_reg_0_255_5_5
        (.A(a[7:0]),
         .D(d[5]),
@@ -1210,7 +1208,7 @@ module inst_rom_spram
   (* ram_slice_begin = "6" *) 
   (* ram_slice_end = "6" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000001000)) 
     ram_reg_0_255_6_6
        (.A(a[7:0]),
         .D(d[6]),
@@ -1226,7 +1224,7 @@ module inst_rom_spram
   (* ram_slice_begin = "7" *) 
   (* ram_slice_end = "7" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000001000)) 
     ram_reg_0_255_7_7
        (.A(a[7:0]),
         .D(d[7]),
@@ -1242,7 +1240,7 @@ module inst_rom_spram
   (* ram_slice_begin = "8" *) 
   (* ram_slice_end = "8" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000001000)) 
     ram_reg_0_255_8_8
        (.A(a[7:0]),
         .D(d[8]),
@@ -1258,7 +1256,7 @@ module inst_rom_spram
   (* ram_slice_begin = "9" *) 
   (* ram_slice_end = "9" *) 
   RAM256X1S #(
-    .INIT(256'h0000000000000000000000000000000000000000000000000000000000000000)) 
+    .INIT(256'h0000000000000000000000000000000000000000000000000000000000001000)) 
     ram_reg_0_255_9_9
        (.A(a[7:0]),
         .D(d[9]),

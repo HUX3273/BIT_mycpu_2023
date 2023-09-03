@@ -20,8 +20,8 @@ module openmips_min_sopc(
     
     //ÊµÀı»¯Ö¸ÁîROM
     inst_rom inst_rom0(
-        .a(inst_addr),       //input
-        .spo(inst)                             //output
+        .a(inst_addr),              //input address
+        .spo(inst)                  //output instruction
     );
     
     

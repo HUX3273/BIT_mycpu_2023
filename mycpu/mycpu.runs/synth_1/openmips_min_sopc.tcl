@@ -64,6 +64,9 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/constrs_1/new/seg.xdc
 set_property used_in_implementation false [get_files C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/constrs_1/new/seg.xdc]
 
+read_xdc C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/constrs_1/new/vga.xdc
+set_property used_in_implementation false [get_files C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/constrs_1/new/vga.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

@@ -21,6 +21,7 @@ Compiling module xil_defaultlib.openmips
 Compiling module dist_mem_gen_v8_0_13.dist_mem_gen_v8_0_13(C_FAMILY="a...
 Compiling module xil_defaultlib.inst_rom
 Compiling module xil_defaultlib.seg_cnt
+Compiling module xil_defaultlib.vga
 Compiling module xil_defaultlib.openmips_min_sopc
 Compiling module xil_defaultlib.openmips_min_sopc_tb
 Compiling module xil_defaultlib.glbl

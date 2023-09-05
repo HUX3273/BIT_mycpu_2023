@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Tue Sep  5 15:24:32 2023
+| Date         : Tue Sep  5 16:02:45 2023
 | Host         : HUX-Y7000P running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file openmips_min_sopc_control_sets_placed.rpt
 | Design       : openmips_min_sopc
@@ -78,23 +78,23 @@ Table of Contents
 |  clk_IBUF_BUFG |                                               |                         |                4 |              9 |
 |  clk_IBUF_BUFG |                                               | openmips0/pc_reg0/clear |                3 |             11 |
 |  clk_IBUF_BUFG | seg_cnt0/cnt_0                                | openmips0/ex0/SR[0]     |                7 |             24 |
-|  n_1_1210_BUFG |                                               | openmips0/ex0/SR[0]     |               19 |             32 |
 |  n_2_1208_BUFG |                                               | openmips0/ex0/SR[0]     |               15 |             32 |
 |  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[3]_6[0] |                         |               30 |             32 |
-|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[4]_1[0] |                         |               11 |             32 |
 |  clk_IBUF_BUFG | openmips0/mem_wb0/E[0]                        |                         |                9 |             32 |
-|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[0]_0[0] |                         |               15 |             32 |
-|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[0]_1[0] |                         |               12 |             32 |
 |  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[0]_3[0] |                         |                9 |             32 |
-|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[1]_1[0] |                         |               12 |             32 |
-|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[3]_1[0] |                         |               31 |             32 |
-|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[2]_4[0] |                         |               11 |             32 |
-|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[1]_0[0] |                         |               28 |             32 |
 |  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[2]_0[0] |                         |               12 |             32 |
 |  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[3]_2[0] |                         |               31 |             32 |
+|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[0]_1[0] |                         |               12 |             32 |
+|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[0]_0[0] |                         |               15 |             32 |
+|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[4]_1[0] |                         |               11 |             32 |
 |  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[3]_3[0] |                         |               12 |             32 |
-|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[3]_4[0] |                         |               12 |             32 |
+|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[2]_4[0] |                         |               11 |             32 |
 |  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[1]_4[0] |                         |               10 |             32 |
+|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[3]_1[0] |                         |               31 |             32 |
+|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[3]_4[0] |                         |               12 |             32 |
+|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[1]_0[0] |                         |               28 |             32 |
+|  clk_IBUF_BUFG | openmips0/mem_wb0/wb_wDestRegAddr_reg[1]_1[0] |                         |               12 |             32 |
+|  n_1_1210_BUFG |                                               | openmips0/ex0/SR[0]     |               19 |             32 |
 |  n_0_1212_BUFG |                                               | openmips0/ex0/SR[0]     |               22 |             32 |
 |  clk_IBUF_BUFG |                                               | openmips0/ex0/SR[0]     |               64 |            173 |
 +----------------+-----------------------------------------------+-------------------------+------------------+----------------+

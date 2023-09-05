@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Tue Sep  5 15:24:58 2023
+| Date             : Tue Sep  5 16:03:02 2023
 | Host             : HUX-Y7000P running 64-bit major release  (build 9200)
 | Command          : report_power -file openmips_min_sopc_power_routed.rpt -pb openmips_min_sopc_power_summary_routed.pb -rpx openmips_min_sopc_power_routed.rpx
 | Design           : openmips_min_sopc
@@ -52,15 +52,15 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.458 |     2287 |       --- |             --- |
+| Slice Logic    |     0.458 |     2288 |       --- |             --- |
 |   LUT as Logic |     0.427 |     1106 |     20800 |            5.32 |
 |   CARRY4       |     0.013 |       33 |      8150 |            0.40 |
 |   Register     |     0.010 |      803 |     41600 |            1.93 |
 |   BUFG         |     0.007 |        4 |        32 |           12.50 |
 |   F7/F8 Muxes  |    <0.001 |      228 |     32600 |            0.70 |
-|   Others       |     0.000 |       16 |       --- |             --- |
+|   Others       |     0.000 |       17 |       --- |             --- |
 | Signals        |     0.406 |     1788 |       --- |             --- |
-| I/O            |     0.004 |       18 |       210 |            8.57 |
+| I/O            |     0.004 |       32 |       210 |           15.24 |
 | Static Power   |     0.074 |          |           |                 |
 | Total          |     0.941 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+

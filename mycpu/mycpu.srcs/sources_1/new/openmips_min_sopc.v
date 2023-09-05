@@ -9,11 +9,11 @@ module openmips_min_sopc(
     output wire[7:0] seg_code,
     
     //vga
-    output wire hs,
-    output wire vs,
-    output wire[3:0] r,
-    output wire[3:0] g,
-    output wire[3:0] b
+    output hs,
+    output vs,
+    output[3:0] r,
+    output[3:0] g,
+    output[3:0] b
     
     );
     
@@ -50,11 +50,12 @@ module openmips_min_sopc(
         .data_i(data),
         .sel(sel),  .seg_code(seg_code)
     );
-    
+
+
     //ÊµÀý»¯vga
     vga vga0(
         .clk(clk),
-        .rst(rst),
+        .rst(~rst),
         .num(data[27:24]),
         
         .hs(hs),
@@ -63,5 +64,6 @@ module openmips_min_sopc(
         .g(g),
         .b(b)
     );
-    
+
+
 endmodule

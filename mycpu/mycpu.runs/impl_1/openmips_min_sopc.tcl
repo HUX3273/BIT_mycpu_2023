@@ -77,6 +77,7 @@ set rc [catch {
   add_files -quiet C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.runs/synth_1/openmips_min_sopc.dcp
   read_ip -quiet C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/ip/inst_rom/inst_rom.xci
   read_xdc C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/constrs_1/new/seg.xdc
+  read_xdc C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/constrs_1/new/vga.xdc
   link_design -top openmips_min_sopc -part xc7a35tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]

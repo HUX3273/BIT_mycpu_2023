@@ -33,16 +33,18 @@ module vga (
         input           rst,
         input [3:0]     num,
         
-        output wire hs,
-        output wire vs,
-        output wire[3:0] r,
-        output wire[3:0] g,
-        output wire[3:0] b
+        output          hs,
+        output          vs,
+        output [3:0]    r,
+        output [3:0]    g,
+        output [3:0]    b
         
     );
     
-    
-    
-    
+    assign hs = 1'b1;
+    assign vs = 1'b1;
+    assign r = 4'b1111;
+    assign g = 4'b1111;
+    assign b = 4'b1111;
 
 endmodule

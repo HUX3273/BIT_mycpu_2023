@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Sun Sep  3 18:41:18 2023
+| Date             : Tue Sep  5 15:24:58 2023
 | Host             : HUX-Y7000P running 64-bit major release  (build 9200)
 | Command          : report_power -file openmips_min_sopc_power_routed.rpt -pb openmips_min_sopc_power_summary_routed.pb -rpx openmips_min_sopc_power_routed.rpx
 | Design           : openmips_min_sopc
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.942        |
+| Total On-Chip Power (W)  | 0.941        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.869        |
+| Dynamic (W)              | 0.868        |
 | Device Static (W)        | 0.074        |
 | Effective TJA (C/W)      | 4.8          |
 | Max Ambient (C)          | 80.5         |
@@ -52,17 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.461 |     2308 |       --- |             --- |
-|   LUT as Logic |     0.431 |     1139 |     20800 |            5.48 |
-|   CARRY4       |     0.013 |       37 |      8150 |            0.45 |
-|   Register     |     0.010 |      799 |     41600 |            1.92 |
+| Slice Logic    |     0.458 |     2287 |       --- |             --- |
+|   LUT as Logic |     0.427 |     1106 |     20800 |            5.32 |
+|   CARRY4       |     0.013 |       33 |      8150 |            0.40 |
+|   Register     |     0.010 |      803 |     41600 |            1.93 |
 |   BUFG         |     0.007 |        4 |        32 |           12.50 |
 |   F7/F8 Muxes  |    <0.001 |      228 |     32600 |            0.70 |
 |   Others       |     0.000 |       16 |       --- |             --- |
-| Signals        |     0.404 |     1777 |       --- |             --- |
+| Signals        |     0.406 |     1788 |       --- |             --- |
 | I/O            |     0.004 |       18 |       210 |            8.57 |
 | Static Power   |     0.074 |          |           |                 |
-| Total          |     0.942 |          |           |                 |
+| Total          |     0.941 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.880 |       0.869 |      0.011 |
+| Vccint    |       1.000 |     0.879 |       0.868 |      0.011 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -139,19 +139,19 @@ Table of Contents
 +-----------------------------------+-----------+
 | Name                              | Power (W) |
 +-----------------------------------+-----------+
-| openmips_min_sopc                 |     0.869 |
-|   inst_rom0                       |     0.088 |
-|     U0                            |     0.088 |
-|       synth_options.dist_mem_inst |     0.088 |
-|   openmips0                       |     0.589 |
-|     ex0                           |     0.012 |
+| openmips_min_sopc                 |     0.868 |
+|   inst_rom0                       |     0.091 |
+|     U0                            |     0.091 |
+|       synth_options.dist_mem_inst |     0.091 |
+|   openmips0                       |     0.580 |
+|     ex0                           |     0.010 |
 |     ex_mem0                       |     0.001 |
 |     id_ex0                        |     0.051 |
-|     if_id0                        |     0.417 |
-|     mem_wb0                       |     0.036 |
-|     pc_reg0                       |     0.053 |
-|     regfile0                      |     0.017 |
-|   seg_cnt0                        |     0.120 |
+|     if_id0                        |     0.407 |
+|     mem_wb0                       |     0.031 |
+|     pc_reg0                       |     0.062 |
+|     regfile0                      |     0.018 |
+|   seg_cnt0                        |     0.130 |
 +-----------------------------------+-----------+
 
 

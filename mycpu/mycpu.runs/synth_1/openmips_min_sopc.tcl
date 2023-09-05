@@ -47,6 +47,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/pc_reg.v
   C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/regfile.v
   C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/seg.v
+  C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/vga.v
   C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/openmips_min_sopc.v
 }
 read_ip -quiet C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/ip/inst_rom/inst_rom.xci

@@ -4,8 +4,17 @@ module openmips_min_sopc(
     input   wire    clk,
     input   wire    rst,
     
+    //seg
     output wire[7:0] sel,
-    output wire[7:0] seg_code
+    output wire[7:0] seg_code,
+    
+    //vga
+    output wire hs,
+    output wire vs,
+    output wire[3:0] r,
+    output wire[3:0] g,
+    output wire[3:0] b
+    
     );
     
     //连接指令rom与cpu
@@ -42,5 +51,17 @@ module openmips_min_sopc(
         .sel(sel),  .seg_code(seg_code)
     );
     
+    //实例化vga
+    vga vga0(
+        .clk(clk),
+        .rst(rst),
+        .num(data[27:24]),
+        
+        .hs(hs),
+        .vs(vs),
+        .r(r),
+        .g(g),
+        .b(b)
+    );
     
 endmodule

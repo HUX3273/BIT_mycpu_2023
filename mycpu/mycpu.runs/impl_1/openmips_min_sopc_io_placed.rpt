@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date                      : Tue Sep  5 16:02:45 2023
+| Date                      : Wed Sep  6 10:45:28 2023
 | Host                      : HUX-Y7000P running 64-bit major release  (build 9200)
 | Command                   : report_io -file openmips_min_sopc_io_placed.rpt
 | Design                    : openmips_min_sopc

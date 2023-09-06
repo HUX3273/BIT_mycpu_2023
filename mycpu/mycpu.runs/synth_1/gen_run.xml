@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1693900891">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1693968260">
   <File Type="PA-TCL" Name="openmips_min_sopc.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="openmips_min_sopc_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="openmips_min_sopc_reports.tcl"/>
   <File Type="RDS-RDS" Name="openmips_min_sopc.vds"/>
   <File Type="RDS-UTIL" Name="openmips_min_sopc_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="openmips_min_sopc_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="openmips_min_sopc.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="openmips_min_sopc_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="openmips_min_sopc_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/defines.v">
@@ -163,4 +160,5 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="inst_rom"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
 </GenRun>

@@ -55,7 +55,7 @@ module openmips_min_sopc(
     //ÊµÀý»¯vga
     vga vga0(
         .clk(clk),
-        .rst(~rst),
+        .rst(rst),
         .num(data[27:24]),
         
         .hs(hs),

@@ -1,5 +1,7 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib "C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/defines.v" --include "../../../../mycpu.srcs/sources_1/new" \
+verilog xil_defaultlib "C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/new/defines.v" --include "../../../../mycpu.srcs/sources_1/ip/clk_wiz_0" --include "../../../../mycpu.srcs/sources_1/new" \
+"../../../../mycpu.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" \
+"../../../../mycpu.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v" \
 "../../../../mycpu.srcs/sources_1/ip/inst_rom/sim/inst_rom.v" \
 "../../../../mycpu.srcs/sources_1/new/ex.v" \
 "../../../../mycpu.srcs/sources_1/new/ex_mem.v" \

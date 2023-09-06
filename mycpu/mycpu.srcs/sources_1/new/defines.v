@@ -96,3 +96,36 @@
 `define RegNum          32      //通用寄存器的数量
 `define RegNumLog2      5       //寻址通用寄存器使用的地址位数，因为只有32个通用寄存器，故只需要5位
 `define NOPRegAddr      5'b00000
+
+
+
+//***************************   VGA   *************************** 
+//  resolution：640*480 ； clk：27.175MHz
+
+`define H_SYNC_PULSE    11'd96
+`define H_BACK_PORCH    11'd48
+`define H_ACTIVE        11'd640
+`define H_FRONT_PORCH   11'd16
+`define H_TOTAL         11'd800
+
+`define V_SYNC_PULSE    11'd2
+`define V_BACK_PORCH    11'd33
+`define V_ACTIVE        11'd480
+`define V_FRONT_PORCH   11'd10
+`define V_TOTAL         11'd525
+
+`define WHITE_R 4'b1111
+`define WHITE_G 4'b1111
+`define WHITE_B 4'b1111
+
+`define BLACK_R 4'b0000
+`define BLACK_G 4'b0000
+`define BLACK_B 4'b0000
+
+`define RED_R 4'b1111
+`define RED_G 4'b0000
+`define RED_B 4'b0000
+
+`define GREEN_R  4'b0010
+`define GREEN_G  4'b0100
+`define GREEN_B  4'b1000

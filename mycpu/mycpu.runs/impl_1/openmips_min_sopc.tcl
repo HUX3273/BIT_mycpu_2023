@@ -74,8 +74,10 @@ set rc [catch {
   set_property parent.project_path C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.xpr [current_project]
   set_property ip_output_repo C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
+  set_property XPM_LIBRARIES XPM_CDC [current_project]
   add_files -quiet C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.runs/synth_1/openmips_min_sopc.dcp
   read_ip -quiet C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/ip/inst_rom/inst_rom.xci
+  read_ip -quiet c:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
   read_xdc C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/constrs_1/new/seg.xdc
   read_xdc C:/Users/HUX/Desktop/BIT_mycpu_2023/mycpu/mycpu.srcs/constrs_1/new/vga.xdc
   link_design -top openmips_min_sopc -part xc7a35tcsg324-1
@@ -173,6 +175,7 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
+  set_property XPM_LIBRARIES XPM_CDC [current_project]
   catch { write_mem_info -force openmips_min_sopc.mmi }
   write_bitstream -force openmips_min_sopc.bit 
   catch {write_debug_probes -quiet -force openmips_min_sopc}
